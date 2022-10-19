@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Selenium Teste</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<div class="col-md-12">
+<h2>Cadastro de Pessoa</h2>
+<div class="panel panel-info">
+<div class="panel-heading">Formulário Básico</div>
+<div class="panel-body">
+<form role="form">
+<div class="form-group">
+<label class="control-label" for="exampleInputEmail1">Email</label>
+<input id="email1" type="email" class="form-control" id="exampleInputEmail1" placeholder="Digite seu email" required>
+</div>
+
+<div class="form-group">
+<div class="checkbox">
+<label> <input type="checkbox"> Ativo </label>
+</div>
+<p class="help-block">Lorem ipsum dolor sit amet</p>
+</div>
+
+<div class="form-group">
+<label class="control-label">Opções</label>
+<div class="checkbox">
+<label> <input type="checkbox" name="optionsRadios" id="optionsCheckbox1" value="option1"
+ecked="">
+Opção 1 </label>
+</div>
+<div class="checkbox">
+<label> <input type="checkbox" name="optionsRadios" id="optionsCheckbox2" value="option2"> Opção
+2
+</label> </div>
+</div>
+
+<div class="form-group">
+<label class="control-label">Sexo</label>
+<div class="radio">
+<label> <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+Masculino </label>
+</div>
+<div class="radio">
+<label> <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Feminino
+</label>
+</div>
+</div>
+
+<button type="submit" class="btn btn-default" onclick="myFunction()">Criar Usuário</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+ function myFunction() {
+     var email = document.getElementById("email1");
+	 var senha = document.getElementById("psw1");
+     if (email.checkValidity() && senha.checkValidity()) {
+         return confirm("Usuário Cadastrado!")
+     }
+ }
+</script>
+
+</body>
+</html>
