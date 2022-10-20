@@ -31,43 +31,39 @@ public class ObjectTest {
 		driver.findElement(By.className("btn")).click();
 		return !driver.findElement(By.id("email1")).getAttribute("validationMessage").isEmpty();
 	}
-	@Test
-	public void testPreencherCorreto() throws Exception{
-		try {
-			driver.get(baseURL);
-			driver.findElement(By.id("email1")).sendKeys("fulano@outlook.com");
-			driver.findElement(By.id("psw1")).sendKeys("123456");
-			driver.findElement(By.className("btn")).click();
-			assertTrue(!driver.switchTo().alert().getText().isBlank());
-			driver.switchTo().alert().accept();
+	
+	public boolean PreencherCorreto(){
+		boolean hasText = false;
+		driver.get(baseURL);
+		driver.findElement(By.id("email1")).sendKeys("fulano@outlook.com");
+		driver.findElement(By.id("psw1")).sendKeys("123456");
+		driver.findElement(By.className("btn")).click();
+		hasText = !driver.switchTo().alert().getText().isBlank();
+		driver.switchTo().alert().accept();
+		return hasText;
 		
-		} catch (UnhandledAlertException e) {
 		
-			}
-	}
-	@Test
-	public void testPreencherIncorreto() throws Exception{
-		try {
-			driver.get(baseURL);
-			driver.findElement(By.id("email1")).sendKeys("fulanooutlook.com");
-			driver.findElement(By.id("psw1")).sendKeys("123456");
-			driver.findElement(By.className("btn")).click();
-			assertTrue(!driver.findElement(By.id("email1")).getAttribute("validationMessage").isEmpty());
-		
-		} catch (UnhandledAlertException e) {
-			
-		}
 	}
 	
-	@Test
-	public void testChecked() throws Exception{
+	public boolean PreencherIncorreto(){
+		
+		driver.get(baseURL);
+		driver.findElement(By.id("email1")).sendKeys("fulanooutlook.com");
+		driver.findElement(By.id("psw1")).sendKeys("123456");
+		driver.findElement(By.className("btn")).click();
+		return !driver.findElement(By.id("email1")).getAttribute("validationMessage").isEmpty();
+		
+		
+	}
+	
+	
+	public void Checked() throws Exception{
 		driver.get(baseURL);
 		driver.findElement(By.className("checkbox")).findElement(By.tagName("INPUT")).click();
 		driver.findElement(By.id("optionsCheckbox2")).click();
 		driver.findElement(By.id("optionsRadios2")).click();
 		driver.findElement(By.className("btn")).click();
-		assertTrue(!driver.findElement(By.id("email1")).getAttribute("validationMessage").isEmpty());
-
+		return !driver.findElement(By.id("email1")).getAttribute("validationMessage").isEmpty();
 	}
 	
 	
